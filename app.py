@@ -107,7 +107,7 @@ while i <= 10:
     '''
     ui.code_io(ex_2_2, key='ex22', file_name=data_dir+"/ex2_2.py",type_out="python" )
     
-    st.markdown(r'''Ví dụ 2.2: Chương trình sử dụng continue để bỏ qua lần lặp của những trường hợp i chia hết cho 2''')
+    st.markdown(r'''Ví dụ 2.3: Chương trình sử dụng continue để bỏ qua lần lặp của những trường hợp i chia hết cho 2''')
     
     
     ex_2_3 = '''#ai vietnam
