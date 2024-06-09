@@ -44,7 +44,7 @@ if st.session_state["authenticated"]:
     """)
     ''')
     key = "ex_1"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_1, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""## 2. Khởi tạo String""" )
@@ -59,7 +59,7 @@ if st.session_state["authenticated"]:
     print(name)
     ''')
     key = "ex_21"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_21, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 2.2 Index trong string""")
@@ -74,7 +74,7 @@ if st.session_state["authenticated"]:
     print(name[-1])
     ''')
     key = "ex_22"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_22, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown("""Chúng ta cũng có thể duyệt từng phần tử trong string với vòng lặp for.""")
@@ -85,7 +85,7 @@ if st.session_state["authenticated"]:
         print(i)
     ''')
     key = "ex_23"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_23, key=key, file_name=file_name, type_out="python", show_now=True)
     st.markdown(r"""### 2.3 Slicing""")
     st.markdown(r"""Slicing string trong Python là một phương pháp mạnh mẽ và linh hoạt để trích xuất các phần cụ thể của chuỗi. 
@@ -109,7 +109,7 @@ if st.session_state["authenticated"]:
     print("b[-5:-2]=",b[-5:-2])                                                    
     ''')
     key = "ex_24"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_24, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""Qua các ví dụ trên chúng ta có thể thấy slicing rất hữu ích trong quá trình xử lý string và ta tóm gọn lại như sau:
@@ -152,7 +152,7 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     print("string_3 * 3 = ", result_2)                                     
     ''')
     key = "ex_31"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_31, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown("""Tuy nhiên, không thể thực hiện các phép tính này trên các chuỗi chứa các ký tự không phải số.""")
@@ -162,7 +162,7 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     result_3 = number_string + 456                                 
     ''')
     key = "ex_32"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_32, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""## 4. Fstring""" )
@@ -182,7 +182,7 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     print(txt_2)                               
     ''')
     key = "ex_4"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_4, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""## 5. Escape characters - Các ký tự đặc biệt""" )
@@ -215,7 +215,7 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     print("Escape cho dấu gạch chéo ngược: C:\\path\\to\\file")               
     ''')
     key = "ex_51"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_51, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 5.2. Escape cho ký tự điều khiển
@@ -232,7 +232,7 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     print("Escape cho tab ngang: Hello\tWorld")               
     ''')
     key = "ex_52"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_52, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 5.3. Escape cho ký tự unicode
@@ -248,7 +248,7 @@ Ký tự Unicode là một tiêu chuẩn quốc tế để đại diện cho cá
              
     ''')
     key = "ex_53"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_53, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 5.4. Escape cho giá trị octal và hex
@@ -264,7 +264,7 @@ Ký tự Unicode là một tiêu chuẩn quốc tế để đại diện cho cá
     print("Escape cho ký tự với giá trị hex: \x41\x42\x43")            
     ''')
     key = "ex_54"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_54, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""Dưới đây là bảng tổng hợp các ký tự escape trong Python, được phân loại theo nhóm chức năng và bao gồm ví dụ minh họa cho từng loại:
@@ -314,7 +314,7 @@ Dựa vào chức năng của các phương thức, chúng được chia thành 
     print(example_string.isupper())            
     ''')
     key = "ex_61"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_61, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 6.2. Các phương thức liên quan đến chuyển đổi và định dạng:
@@ -335,7 +335,7 @@ Dựa vào chức năng của các phương thức, chúng được chia thành 
     print(example_string.title()) 
     ''')
     key = "ex_62"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_62, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 6.3. Các phương thức liên quan đến tìm kiếm và thay thế:
@@ -352,7 +352,7 @@ Dựa vào chức năng của các phương thức, chúng được chia thành 
     print(example_string.replace("apple", "pear"))
     ''')
     key = "ex_63"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_63, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""Dưới đây là bảng tổng hợp các phương thức của string trong Python:
@@ -390,7 +390,7 @@ Các hàm này kiểm tra các thuộc tính của chuỗi và trả về giá t
     print(f"isinstance(s, str): {isinstance(s, str)}")
     ''')
     key = "ex_71"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_71, key=key, file_name=file_name, type_out="python", show_now=True)
     st.markdown(r"""### 7.2. Nhóm chuyển đổi kiểu
 Các hàm này chuyển đổi chuỗi sang kiểu dữ liệu khác.
@@ -414,7 +414,7 @@ Các hàm này chuyển đổi chuỗi sang kiểu dữ liệu khác.
     print(f"float(s_float): {f_num}")
     ''')
     key = "ex_72"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_72, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 7.3. Nhóm định dạng cấu trúc
@@ -426,7 +426,7 @@ Các hàm này chuyển đổi chuỗi sang kiểu dữ liệu khác.
     print(s.format("world"))
     ''')
     key = "ex_73"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_73, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 7.4. Nhóm mã hóa và giải mã
@@ -446,7 +446,7 @@ Các hàm này mã hóa và giải mã chuỗi.
     print(f"chr(code): {character}")
     ''')
     key = "ex_74"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_74, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 7.5. Nhóm kiểm tra ký tự
@@ -466,7 +466,7 @@ Các hàm này kiểm tra ký tự trong chuỗi.
     print(f"any(c.isdigit() for c in s_with_digits): {any_digit}")     
     ''')
     key = "ex_75"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_75, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""### 7.6. Nhóm thao tác trên chuỗi
@@ -493,7 +493,7 @@ Các hàm này thao tác trực tiếp trên chuỗi.
     print(f"''.join(reversed(s)): {reversed_s}")
     ''')
     key = "ex_76"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_76, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.markdown(r"""| Nhóm             | Hàm          | Mô tả chức năng                              | Ví dụ                                         |
@@ -521,7 +521,7 @@ Các hàm này thao tác trực tiếp trên chuỗi.
     print(s[5])
     ''')
     key = "ex_81"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_81, key=key, file_name=file_name, type_out="python", show_now=True)
     st.markdown(r"""### 8.2 Sử dụng phương thức trên kiểu dữ liệu không phù hợp (TypeError)""" )
     ex_82 = textwrap.dedent('''\
@@ -530,7 +530,7 @@ Các hàm này thao tác trực tiếp trên chuỗi.
     print(num.lower())  # TypeError: 'int' object has no attribute 'lower'
     ''')
     key = "ex_82"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_82, key=key, file_name=file_name, type_out="python", show_now=True)
     st.markdown(r"""### 8.3 Sử dụng sai cú pháp (SyntaxError)""" )
     ex_83 = textwrap.dedent('''\
@@ -538,7 +538,7 @@ Các hàm này thao tác trực tiếp trên chuỗi.
     name = "ai viet nam'
     ''')
     key = "ex_83"
-    file_name = key+".py"
+    file_name = data_dir+key+".py"
     ui.code_io(ex_83, key=key, file_name=file_name, type_out="python", show_now=True)
     
     st.success('Chúc mừng bạn đã hoàn thành bài học nha!', icon="✅")
