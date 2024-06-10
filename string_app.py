@@ -62,7 +62,6 @@ if st.session_state["authenticated"]:
     file_name = data_dir+key+".py"
     result, code_ex, key = ui.code_io(ex_1, key=key, file_name=file_name, type_out="python", show_now=True)
     ui.ai(result, code_ex, key)
-    st.write(st.session_state)
     
     st.markdown(r"""## 2. Khởi tạo String""" )
     
