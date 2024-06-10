@@ -22,6 +22,21 @@ if st.session_state["authenticated"]:
     username = st.session_state["username"]
     st.success(f"Xin chào {username}! 📢📢📢📢📢📢 Tin nóng: Tích hợp tính năng hỏi đáp, debug code với AI 🥰😍😘")
     
+    # Cửa sổ hướng dẫn người dùng
+    with st.expander("Hướng dẫn sử dụng ứng dụng 📗"):
+        st.write("""
+        ### Hướng dẫn sử dụng
+        1. Nhấn nút run để chạy code
+        2. Khi chương trình chạy thành công, nhấn "Hỏi AI🤖" để giải thích code nếu bạn chưa hiểu. Đối với lần đầu sử dụng, một thông báo "Pop up blocked" xuất hiện trên
+        thanh tìm kiếm của trình duyệt, bạn phải tích vào "allow for...https://aio2024-string-python.streamlit.app/" hoặc refresh lại trang và đăng nhập lại để sử dụng tính năng này.
+        3. Nút "Debug AI🤖" xuất hiện khi chương trình bạn chạy có lỗi.
+        4. Kết quả và ví dụ mã sẽ hiển thị bên dưới.
+
+        #### Lưu ý
+        - Lần đầu tiên sử dụng cần cho phép trình duyệt mở cửa sổ mới như đã hướng dẫn ở bước 2
+        - 1 ví dụ chỉ được sử dụng hỏi AI một lần, nếu muốn sử dụng nhiều lần thì cần nhấn nút run trên ô chứa code rồi thực hiện nhấn nút hỏi AI.
+        """)
+    
     # current_directory = os.getcwd()
     data_dir = "data/"+username+"/string/"
     if not os.path.exists(data_dir):
@@ -45,7 +60,9 @@ if st.session_state["authenticated"]:
     ''')
     key = "ex_1"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_1, key=key, file_name=file_name, type_out="python", show_now=True)
+    result, code_ex, key = ui.code_io(ex_1, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
+    st.write(st.session_state)
     
     st.markdown(r"""## 2. Khởi tạo String""" )
     
@@ -60,8 +77,9 @@ if st.session_state["authenticated"]:
     ''')
     key = "ex_21"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_21, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_21, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
+
     st.markdown(r"""### 2.2 Index trong string""")
     st.markdown("""String là một tập hợp các ký tự được đánh số thứ tự (index) bắt đầu từ 0. 
                 Ta có thể truy cập và thao tác với từng ký tự trong chuỗi bằng cách sử dụng chỉ số của nó.
@@ -75,8 +93,9 @@ if st.session_state["authenticated"]:
     ''')
     key = "ex_22"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_22, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_22, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
+
     st.markdown("""Chúng ta cũng có thể duyệt từng phần tử trong string với vòng lặp for.""")
     ex_23 = textwrap.dedent('''\
     #ai vietnam
@@ -86,7 +105,9 @@ if st.session_state["authenticated"]:
     ''')
     key = "ex_23"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_23, key=key, file_name=file_name, type_out="python", show_now=True)
+    result, code_ex, key = ui.code_io(ex_23, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
+
     st.markdown(r"""### 2.3 Slicing""")
     st.markdown(r"""Slicing string trong Python là một phương pháp mạnh mẽ và linh hoạt để trích xuất các phần cụ thể của chuỗi. 
                 Bằng cách sử dụng cú pháp s[start:end:step], bạn có thể chọn ra một đoạn con từ chuỗi gốc, nơi start là chỉ số bắt đầu,
@@ -110,8 +131,9 @@ if st.session_state["authenticated"]:
     ''')
     key = "ex_24"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_24, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_24, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
+
     st.markdown(r"""Qua các ví dụ trên chúng ta có thể thấy slicing rất hữu ích trong quá trình xử lý string và ta tóm gọn lại như sau:
 
 * Sclicing giúp truy xuất dễ dàng các phần của chuỗi mà không cần lặp qua từng ký tự.
@@ -153,8 +175,9 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     ''')
     key = "ex_31"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_31, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_31, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
+
     st.markdown("""Tuy nhiên, không thể thực hiện các phép tính này trên các chuỗi chứa các ký tự không phải số.""")
     ex_32 = textwrap.dedent('''\
     #ai vietnam
@@ -163,8 +186,9 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     ''')
     key = "ex_32"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_32, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_32, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
+
     st.markdown(r"""## 4. Fstring""" )
     st.markdown("""F-string (formatted string literals) là một cách tiện lợi và dễ đọc để định dạng chuỗi trong Python,
                 được giới thiệu từ Python 3.6. Bằng cách đặt chữ 'f' hoặc 'F' trước dấu ngoặc kép mở của chuỗi, 
@@ -183,8 +207,8 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     ''')
     key = "ex_4"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_4, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_4, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""## 5. Escape characters - Các ký tự đặc biệt""" )
     st.markdown(r"""Trong Python, các ký tự escape được sử dụng để biểu diễn các ký tự đặc biệt trong chuỗi mà không thể được 
                 biểu diễn trực tiếp. Theo chức năng, ta phân thành 3 loại escape sau:
@@ -216,8 +240,8 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     ''')
     key = "ex_51"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_51, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_51, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 5.2. Escape cho ký tự điều khiển
 
 - \n: Tạo một dòng mới trong string
@@ -233,8 +257,8 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     ''')
     key = "ex_52"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_52, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_52, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 5.3. Escape cho ký tự unicode
 
 Ký tự Unicode là một tiêu chuẩn quốc tế để đại diện cho các ký tự và biểu tượng từ các ngôn ngữ và văn hóa khác nhau trên thế giới. Dưới đây là cách chúng ta biểu diễn chúng trong string.""")
@@ -249,8 +273,8 @@ Ký tự Unicode là một tiêu chuẩn quốc tế để đại diện cho cá
     ''')
     key = "ex_53"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_53, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_53, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 5.4. Escape cho giá trị octal và hex
 
 - \ooo : ooo là ba chữ số bát phân, đại diện cho giá trị ASCII của ký tự
@@ -265,8 +289,8 @@ Ký tự Unicode là một tiêu chuẩn quốc tế để đại diện cho cá
     ''')
     key = "ex_54"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_54, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_54, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""Dưới đây là bảng tổng hợp các ký tự escape trong Python, được phân loại theo nhóm chức năng và bao gồm ví dụ minh họa cho từng loại:
 
 | Nhóm               | Ký tự Escape | Mô tả                            | Ví dụ                                                       |
@@ -315,8 +339,8 @@ Dựa vào chức năng của các phương thức, chúng được chia thành 
     ''')
     key = "ex_61"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_61, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_61, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 6.2. Các phương thức liên quan đến chuyển đổi và định dạng:
 - capitalize(): Chuyển đổi ký tự đầu tiên của chuỗi thành chữ hoa.
 - lower(): Chuyển đổi tất cả các ký tự trong chuỗi thành chữ thường.
@@ -336,8 +360,8 @@ Dựa vào chức năng của các phương thức, chúng được chia thành 
     ''')
     key = "ex_62"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_62, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_62, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 6.3. Các phương thức liên quan đến tìm kiếm và thay thế:
 - count(): Đếm số lần xuất hiện của một chuỗi con trong chuỗi.
 - find(): Tìm vị trí của một chuỗi con trong chuỗi. Trả về chỉ số đầu tiên nếu tìm thấy, -1 nếu không tìm thấy.
@@ -353,8 +377,8 @@ Dựa vào chức năng của các phương thức, chúng được chia thành 
     ''')
     key = "ex_63"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_63, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_63, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""Dưới đây là bảng tổng hợp các phương thức của string trong Python:
 
 | Nhóm        | Phương thức | Mô tả chức năng                                  | Ví dụ                                                         |
@@ -391,7 +415,8 @@ Các hàm này kiểm tra các thuộc tính của chuỗi và trả về giá t
     ''')
     key = "ex_71"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_71, key=key, file_name=file_name, type_out="python", show_now=True)
+    result, code_ex, key = ui.code_io(ex_71, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 7.2. Nhóm chuyển đổi kiểu
 Các hàm này chuyển đổi chuỗi sang kiểu dữ liệu khác.
 
@@ -415,8 +440,8 @@ Các hàm này chuyển đổi chuỗi sang kiểu dữ liệu khác.
     ''')
     key = "ex_72"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_72, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_72, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 7.3. Nhóm định dạng cấu trúc
 Định dạng chuỗi theo một cấu trúc cụ thể""")
     
@@ -427,8 +452,8 @@ Các hàm này chuyển đổi chuỗi sang kiểu dữ liệu khác.
     ''')
     key = "ex_73"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_73, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_73, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 7.4. Nhóm mã hóa và giải mã
 Các hàm này mã hóa và giải mã chuỗi.
 
@@ -447,8 +472,8 @@ Các hàm này mã hóa và giải mã chuỗi.
     ''')
     key = "ex_74"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_74, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_74, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 7.5. Nhóm kiểm tra ký tự
 Các hàm này kiểm tra ký tự trong chuỗi.
 
@@ -467,8 +492,8 @@ Các hàm này kiểm tra ký tự trong chuỗi.
     ''')
     key = "ex_75"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_75, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_75, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 7.6. Nhóm thao tác trên chuỗi
 Các hàm này thao tác trực tiếp trên chuỗi.
 
@@ -494,8 +519,8 @@ Các hàm này thao tác trực tiếp trên chuỗi.
     ''')
     key = "ex_76"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_76, key=key, file_name=file_name, type_out="python", show_now=True)
-    
+    result, code_ex, key = ui.code_io(ex_76, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""| Nhóm             | Hàm          | Mô tả chức năng                              | Ví dụ                                         |
 |------------------|--------------|----------------------------------------------|----------------------------------------------|
 | Kiểm tra chuỗi   | `len()`      | Trả về độ dài của chuỗi                      | `len("Hello")`  # Trả về 5                   |
@@ -522,7 +547,8 @@ Các hàm này thao tác trực tiếp trên chuỗi.
     ''')
     key = "ex_81"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_81, key=key, file_name=file_name, type_out="python", show_now=True)
+    result, code_ex, key = ui.code_io(ex_81, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 8.2 Sử dụng phương thức trên kiểu dữ liệu không phù hợp (TypeError)""" )
     ex_82 = textwrap.dedent('''\
     #ai vietnam
@@ -531,7 +557,8 @@ Các hàm này thao tác trực tiếp trên chuỗi.
     ''')
     key = "ex_82"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_82, key=key, file_name=file_name, type_out="python", show_now=True)
+    result, code_ex, key = ui.code_io(ex_82, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     st.markdown(r"""### 8.3 Sử dụng sai cú pháp (SyntaxError)""" )
     ex_83 = textwrap.dedent('''\
     #ai vietnam
@@ -539,6 +566,7 @@ Các hàm này thao tác trực tiếp trên chuỗi.
     ''')
     key = "ex_83"
     file_name = data_dir+key+".py"
-    ui.code_io(ex_83, key=key, file_name=file_name, type_out="python", show_now=True)
+    result, code_ex, key = ui.code_io(ex_83, key=key, file_name=file_name, type_out="python", show_now=True)
+    ui.ai(result, code_ex, key)
     
     st.success('Chúc mừng bạn đã hoàn thành bài học nha!', icon="✅")

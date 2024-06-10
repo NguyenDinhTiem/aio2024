@@ -1,2 +1,2 @@
-aio_code_editor-0.9.7-py3-none-any.whl
+aio_code_editor-0.9.8-py3-none-any.whl
 supabase==2.4.3
