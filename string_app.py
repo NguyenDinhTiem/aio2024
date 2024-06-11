@@ -229,13 +229,13 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     ex_51 = textwrap.dedent('''\
     #ai vietnam
     # Dấu nháy đơn (single quote)
-    print('Escape cho dấu nháy đơn: It\'s a test.')
+    print('Escape cho dấu nháy đơn: It\\'s a test.')
 
     # Dấu nháy kép (double quote)
-    print("Escape cho dấu nháy kép: He said, \"Hello\"")
+    print("Escape cho dấu nháy kép: He said, \\"Hello\\"")
 
     # Ký tự gạch chéo ngược (backslash)
-    print("Escape cho dấu gạch chéo ngược: C:\\path\\to\\file")               
+    print("Escape cho dấu gạch chéo ngược: C:\\\\path\\\\to\\\\file")               
     ''')
     key = "ex_51"
     file_name = data_dir+key+".py"
@@ -249,10 +249,10 @@ Dưới đây là bảng tổng hợp lại các cách sử dụng slicing:
     ex_52 = textwrap.dedent('''\
     #ai vietnam
     # Dòng mới (newline)
-    print("Escape cho dòng mới: First line.\nSecond line.")
+    print("Escape cho dòng mới: First line.\\nSecond line.")
 
     # Tab ngang (horizontal tab)
-    print("Escape cho tab ngang: Hello\tWorld")               
+    print("Escape cho tab ngang: Hello\\tWorld")               
     ''')
     key = "ex_52"
     file_name = data_dir+key+".py"
@@ -264,7 +264,7 @@ Ký tự Unicode là một tiêu chuẩn quốc tế để đại diện cho cá
     ex_53 = textwrap.dedent('''\
     #ai vietnam
     # Ký tự Unicode của chuỗi "Hello"
-    print("\u0048\u0065\u006C\u006C\u006F")
+    print("\\u0048\\u0065\\u006C\\u006C\\u006F")
 
     # Ký tự Unicode với tên được chỉ định
     print("Escape cho ký tự Unicode với tên được chỉ định: \N{cat}")
@@ -281,10 +281,10 @@ Ký tự Unicode là một tiêu chuẩn quốc tế để đại diện cho cá
     ex_54 = textwrap.dedent('''\
     #ai vietnam
     # Ký tự với giá trị octal(8, bát phân)
-    print("Escape cho ký tự với giá trị octal: \101\102\103")
+    print("Escape cho ký tự với giá trị octal: \\101\\102\\103")
 
     # Ký tự với giá trị hex(16, thập lục phân)
-    print("Escape cho ký tự với giá trị hex: \x41\x42\x43")            
+    print("Escape cho ký tự với giá trị hex: \\x41\\x42\\x43")            
     ''')
     key = "ex_54"
     file_name = data_dir+key+".py"
