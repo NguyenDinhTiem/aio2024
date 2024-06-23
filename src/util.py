@@ -25,6 +25,10 @@ def display_login_form():
 
 def install_packages():
     try:
+        import numpy as np
+    except ImportError:
+        os.system('pip install numpy')
+    try:
         import tensorflow as tf
     except ImportError:
         os.system('pip install "tensorflow-cpu==2.14.0"')
