@@ -24,14 +24,14 @@ def display_login_form():
 
 
 def install_packages():
-    try:
-        import numpy as np
-    except ImportError:
-        os.system('pip install numpy==1.26.0')
+    # try:
+    #     import numpy as np
+    # except ImportError:
+    #     os.system('pip install numpy==1.26.0')
     try:
         import tensorflow as tf
     except ImportError:
-        os.system('pip install tensorflow-cpu==2.14.0')
+        os.system('pip install "tensorflow-cpu==2.13.0"')
 
     try:
         import torch
