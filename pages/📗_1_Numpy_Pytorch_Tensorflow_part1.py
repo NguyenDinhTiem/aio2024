@@ -39,7 +39,7 @@ if st.session_state["authenticated"]:
             os.makedirs(data_dir)
 
       st.markdown("# NUMPY ARRAY VÀ PYTORCH/TENSORFLOW TENSOR - PHẦN 1 - AIO 2024")
-      st.markdown('''##**1. Mô tả**
+      st.markdown('''## **1. Mô tả**
 
 Array trong Numpy và Tensor trong các thư viện Pytorch, Tensorflow là
 những thành phần nền tảng cốt lõi cho việc tính toán của các thư viện
