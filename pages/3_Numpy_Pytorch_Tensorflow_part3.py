@@ -3,8 +3,10 @@ import os
 from src.util import check_authentication, install_packages, plot_img, generate_code_file
 st.set_page_config(page_title="Test App", layout="wide")
 
-check_authentication()
+# check_authentication()
 install_packages()
+st.session_state.authenticated=True
+st.session_state.username = "Học viên"
 
 if st.session_state["authenticated"]:    
     username = st.session_state["username"]
@@ -29,8 +31,6 @@ if st.session_state["authenticated"]:
     data_dir = "data/"+username+"/npt/part2/"
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
-    st.button("Đăng xuất", on_click=st.session_state.clear)
-
     st.markdown("# CÁC HÀM KHỞI TẠO NUMPY ARRAY VÀ PYTORCH/TENSORFLOW TENSOR - PHẦN 3 - AIO 2024")
 
     st.markdown('''## **1. Mô tả**

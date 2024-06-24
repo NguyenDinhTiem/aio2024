@@ -3,9 +3,17 @@ import os
 from src.util import check_authentication, install_packages, plot_img, generate_code_file
 st.set_page_config(page_title="Test App", layout="wide")
 
-check_authentication()
+# check_authentication()
 install_packages()
+st.session_state.authenticated=True
+st.session_state.username = "Học viên"
+        
+# st.set_page_config(page_title="Test App", layout="wide")
 
+# check_authentication()
+install_packages()
+st.session_state.authenticated=True
+st.session_state.username = "Học viên"
 if st.session_state["authenticated"]:    
       username = st.session_state["username"]
       st.success(f"Xin chào {username}! 📢📢📢📢📢📢 Tin nóng: Tích hợp tính năng hỏi đáp, debug code với AI 🥰😍😘")
@@ -29,7 +37,6 @@ if st.session_state["authenticated"]:
       data_dir = "data/"+username+"/npt/part1/"
       if not os.path.exists(data_dir):
             os.makedirs(data_dir)
-      st.button("Đăng xuất", on_click=st.session_state.clear)
 
       st.markdown("# NUMPY ARRAY VÀ PYTORCH/TENSORFLOW TENSOR - PHẦN 1 - AIO 2024")
       st.markdown('''##**1. Mô tả**
